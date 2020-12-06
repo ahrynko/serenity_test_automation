@@ -2,18 +2,16 @@ package ahrynko.com.github.page_object.panels.booking;
 
 import ahrynko.com.github.page_object.pages.AbstractPage;
 import ahrynko.com.github.page_object.panels.AbstractPanel;
+import lombok.SneakyThrows;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.Collections;
 import java.util.List;
 
 public class BookingCalendarPanel extends AbstractPanel {
 
     private static final String NEXT_MONTH_BUTTON = ".//div[@data-bui-ref='calendar-next']";
-    private static final String CALENDAR_MONTH = "(.//div[@class='bui-calendar__wrapper'])[1]";
     private static final String MONTH_NAME_LOCATOR = "(.//div[@class='bui-calendar__month'])[1]";
-    private static final String TRAVEL_DAY_LOCATOR = ".//td[@data-date]//span[@aria-hidden]";
+    private static final String TRAVEL_DAYS_LOCATOR = "(.//div[@class='bui-calendar__wrapper'])[1]//td[@data-date]//span[@aria-hidden]";
 
     public BookingCalendarPanel(final WebElementFacade panelBaseLocation, final AbstractPage driverDelegate) {
         super(panelBaseLocation, driverDelegate);
@@ -24,16 +22,19 @@ public class BookingCalendarPanel extends AbstractPanel {
         selectTravelDay(day);
     }
 
-    private void selectTravelDay(final String day) {  //refactor
+    @SneakyThrows
+    private void selectTravelDay(final String day) {
 
-        List<String> travelDays = Collections.singletonList(findBy(TRAVEL_DAY_LOCATOR).waitUntilVisible().getText());  //refactor
+        List<WebElementFacade> travelDays = findAll(TRAVEL_DAYS_LOCATOR);
 
-        for(String travelDay : travelDays) {
-            if(StringUtils.equals(travelDay, day)) {
-                findBy(TRAVEL_DAY_LOCATOR).waitUntilVisible().click();
-                break;
+            for(WebElementFacade travelDay : travelDays) {
+                if(StringUtils.equals(travelDay.getText(), day)) {
+                    break;
+                }else if(day.isEmpty() || day.intern().matches("0") || Integer.parseInt(day) > travelDays.size()) {
+                  throw new Exception("Unable to select the trip date!");
+                }
             }
-        }
+
     }
 
     private void selectTravelMonthAndYear(final String monthYear) {
