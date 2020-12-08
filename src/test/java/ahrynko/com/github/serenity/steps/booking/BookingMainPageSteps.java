@@ -22,6 +22,16 @@ public class BookingMainPageSteps extends ScenarioSteps {
     }
 
     @Step
+    public void selectLanguage() {
+        bookingMainPage.getHeaderPanel().selectLanguage();
+    }
+
+    @Step
+    public void changeLanguageToEnglish() {
+        bookingMainPage.getBookingCurrentLangPanel().changeLanguageToEnglish();
+    }
+
+    @Step
     public void chooseYourCity(final ChooseCityModel chooseCity) {
         bookingMainPage.getSearchBoxPanel().typeTravelPlace(chooseCity.getCity());
     }

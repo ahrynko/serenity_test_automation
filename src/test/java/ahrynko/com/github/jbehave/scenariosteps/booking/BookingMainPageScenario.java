@@ -20,6 +20,12 @@ public class BookingMainPageScenario {
         bookingMainPageSteps.openMainPageUrl(commonUrl);
     }
 
+    @When("user is trying to change the language to English (US)")
+    public void changeLanguageToEnglish() {
+        bookingMainPageSteps.selectLanguage();
+        bookingMainPageSteps.changeLanguageToEnglish();
+    }
+
     @When("user typed travel place, in search input field: $city")
     public void chooseCity(final ExamplesTable city) {
         final ChooseCityModel chooseCity = city.getRowsAs(ChooseCityModel.class).get(0);
