@@ -3,6 +3,7 @@ package ahrynko.com.github.serenity.steps.booking;
 import ahrynko.com.github.page_object.model.booking.ChooseCityModel;
 import ahrynko.com.github.page_object.model.booking.ChooseDateModal;
 import ahrynko.com.github.page_object.pages.booking.BookingMainPage;
+import ahrynko.com.github.page_object.pages.booking.BookingResultsPage;
 import ahrynko.com.github.page_object.panels.booking.BookingCalendarPanel;
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.pages.Pages;
@@ -45,5 +46,11 @@ public class BookingMainPageSteps extends ScenarioSteps {
     @Step
     public void selectTravelDate(final ChooseDateModal chooseDateModal) {
         bookingMainPage.getBookingCalendarPanel().selectTravelDate(chooseDateModal.getDay(), chooseDateModal.getMonthYear());
+    }
+
+    @Step
+    public Class<BookingResultsPage> performSearch() {
+        bookingMainPage.getSearchBoxPanel().performSearch();
+        return BookingResultsPage.class;
     }
 }

@@ -43,4 +43,9 @@ public class BookingMainPageScenario {
         bookingMainPageSteps.selectTravelDate(chooseDateModal);
     }
 
+    @When("user perform search with travel location")
+    public void performSearch() {
+        bookingMainPageSteps.performSearch();
+    }
+
 }

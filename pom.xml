@@ -13,7 +13,7 @@
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <serenity-core.version>2.0.90</serenity-core.version>
+        <serenity-core.version>2.3.9</serenity-core.version>
         <serenity-maven-plugin.version>2.0.89</serenity-maven-plugin.version>
         <serenity-jbehave.version>1.46.0</serenity-jbehave.version>
         <serenity-jira-plugin.version>1.12.0</serenity-jira-plugin.version>
@@ -34,7 +34,7 @@
         <logger.version>1.2.17</logger.version>
         <lombok.version>1.18.10</lombok.version>
         <commons-lang.version>3.9</commons-lang.version>
-        <rest-assured.version>4.3.0</rest-assured.version>
+        <rest-assured.version>4.3.2</rest-assured.version>
         <jackson-databind.version>2.10.2</jackson-databind.version>
         <jdbc-driver.version>8.2.1.jre8</jdbc-driver.version>
         <jsoup-java-parser.version>1.13.1</jsoup-java-parser.version>

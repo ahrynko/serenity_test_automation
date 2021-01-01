@@ -15,6 +15,24 @@ public class MyCustomDriver implements DriverSource {
         options.addArguments("test-type");
         capabilities.setCapability(ChromeOptions.CAPABILITY, options);
 
+/*        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless");
+        options.addArguments("--no-sandbox");
+        System.setProperty("webdriver.chrome.args", "--disable-logging");
+        System.setProperty("webdriver.chrome.silentOutput", "true");
+        options.setBinary("/pointing/downloaded/driver/path/in/automationsuite");
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("disable-infobars"); // disabling infobars
+        options.addArguments("--disable-extensions"); // disabling extensions
+        options.addArguments("--disable-gpu"); // applicable to windows os only
+        options.addArguments("--disable-dev-shm-usage"); // overcome limited resource problems
+        options.addArguments("window-size=1024,768"); // Bypass OS security model
+        options.addArguments("--log-level=3"); // set log level
+        options.addArguments("--silent");//
+        options.setCapability("chrome.verbose", false); //disable logging*/
+
+//        System.setProperty("webdriver.chrome.driver", "C:\\Users\\User51\\IdeaProjects\\serenity_test_automation\\chromedriver.exe");
+
         return new ChromeDriver(options);
     }
 

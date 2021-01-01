@@ -29,6 +29,7 @@ public class BookingCalendarPanel extends AbstractPanel {
 
             for(WebElementFacade travelDay : travelDays) {
                 if(StringUtils.equals(travelDay.getText(), day)) {
+                    travelDay.click();
                     break;
                 }else if(day.isEmpty() || day.intern().matches("0") || Integer.parseInt(day) > travelDays.size()) {
                   throw new Exception("Unable to select the trip date!");
